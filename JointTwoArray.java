@@ -7,7 +7,7 @@ package com.github.wangcanfeng01.freedom.ragnaros;
  * @author wangcanfeng
  * @since 2.0.0
  */
-public class TestClass {
+public class JointTwoArray {
 
     static int num = 10;
     static int[] data1 = new int[num];
