@@ -1,0 +1,64 @@
+package org.wcf.test.springboottest;
+
+import java.util.*;
+
+/**
+ * 功能说明：
+ * Created in 2020/4/18-23:18
+ *
+ * @author wangcanfeng
+ * @since 2.0.0
+ */
+public class PermutationAndCombination {
+  static int n = 3;
+    static int k = 3;
+    static List<String> result = new LinkedList<>();
+
+    public static void main(String[] args) {
+        print(n, k);
+    }
+
+    private static void print(int n, int k) {
+        String element = createElements(n);
+        char[] chars = element.toCharArray();
+        aspect(new StringBuilder(), chars);
+        System.out.println(result.get(k-1));
+    }
+
+    private static void aspect(StringBuilder choose, char[] remain) {
+        if (remain.length == 1) {
+            result.add(choose + String.valueOf(remain));
+        } else {
+            for (char c : remain) {
+                aspect(choose.append(c), removeChoose(remain, c));
+                // 每次用完之后就移除掉，避免重复
+                choose.deleteCharAt(choose.length()-1);
+            }
+        }
+    }
+
+    private static String createElements(int n) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            sb.append(i + 1);
+        }
+        return sb.toString();
+    }
+
+
+    private static char[] removeChoose(char[] elements, char choose) {
+        // 只有一个元素直接返回
+        if (elements.length < 2) {
+            return elements;
+        }
+        char[] remain = new char[elements.length - 1];
+        int index = 0;
+        for (char c : elements) {
+            if (c != choose) {
+                remain[index] = c;
+                index++;
+            }
+        }
+        return remain;
+    }
+}
