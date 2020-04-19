@@ -1,7 +1,7 @@
 package com.github.wangcanfeng01.freedom.ragnaros;
 
 /**
- * 功能说明：
+ * 功能说明：两个有序数组合并
  * Created in 2020/4/16-19:52
  *
  * @author wangcanfeng
